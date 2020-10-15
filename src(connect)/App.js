@@ -1,6 +1,6 @@
 import React from "react";
-import AddList from "./components/AddList";
-import DisplayList from "./components/DisplayList";
+import AddList from "./containers/AddList";
+import DisplayList from "./containers/DisplayList";
 
 const App = () => {
   return (

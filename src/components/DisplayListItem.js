@@ -1,13 +1,21 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import * as actions from "../_actions/todo_action";
+import "./DisplayListItem.css";
 
-const DisplayListItem = (props) => {
+const DisplayListItem = ({ textItem, index }) => {
+  const { list } = useSelector((store) => store.todo);
+  const dispatch = useDispatch();
+
   const [editing, setEditing] = useState(false);
-  const [editText, setEditText] = useState(props.text[props.index]);
+  const [editText, setEditText] = useState(list[index].text);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    props.onSubmit(editText, props.index);
-    setEditing(!editing);
+    if (editText !== "") {
+      dispatch(actions.editList(editText, index));
+      setEditing(!editing);
+    }
   };
   const onChange = (e) => {
     const { value } = e.target;
@@ -15,10 +23,13 @@ const DisplayListItem = (props) => {
   };
   const onClickEdit = () => {
     setEditing(!editing);
-    setEditText(props.text[props.index]);
+    setEditText(list[index].text);
   };
   const onClickDelete = () => {
-    props.onClickDelete(props.index);
+    dispatch(actions.deleteList(index));
+  };
+  const onClickComplete = () => {
+    dispatch(actions.completeList(index));
   };
 
   return (
@@ -33,16 +44,27 @@ const DisplayListItem = (props) => {
                 onChange={onChange}
                 placeholder="내용 입력"
               />
+              <br />
               <input type="submit" value="확인" />
+              <button onClick={onClickEdit}>취소</button>
             </form>
-            <button onClick={onClickEdit}>취소</button>
           </div>
         </>
       ) : (
         <>
           <div>
-            {props.textItem}
-            <button onClick={onClickEdit}>수정</button>
+            {list[index].complete ? (
+              <>
+                <p className="textItem complete">{textItem}</p>
+                <button onClick={onClickComplete}>복구</button>
+              </>
+            ) : (
+              <>
+                <p className="textItem">{textItem}</p>
+                <button onClick={onClickComplete}>완료</button>
+                <button onClick={onClickEdit}>수정</button>
+              </>
+            )}
             <button onClick={onClickDelete}>삭제</button>
           </div>
         </>

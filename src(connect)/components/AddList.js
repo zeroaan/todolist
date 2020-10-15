@@ -1,17 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import * as actions from "../_actions/todo_action";
 
 const AddList = (props) => {
-  const dispatch = useDispatch();
   const [list, setList] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (list !== "") {
-      dispatch(actions.addList(list));
-      setList("");
-    }
+    props.onSubmit(list);
+    setList("");
   };
   const onChange = (e) => {
     const { value } = e.target;

@@ -1,0 +1,7 @@
+.textItem {
+  color: black;
+}
+.complete {
+  color: rgb(200, 200, 200);
+  text-decoration: line-through;
+}

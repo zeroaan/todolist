@@ -1,9 +1,4 @@
-import {
-  ADD_LIST,
-  DELETE_LIST,
-  EDIT_LIST,
-  COMPLETE_LIST,
-} from "../_actions/types";
+import { ADD_LIST, DELETE_LIST, EDIT_LIST } from "../_actions/types";
 
 export const addList = (text) => {
   return {
@@ -22,11 +17,5 @@ export const editList = (editText, id) => {
     type: EDIT_LIST,
     id: id,
     editText: editText,
-  };
-};
-export const completeList = (id) => {
-  return {
-    type: COMPLETE_LIST,
-    id: id,
   };
 };

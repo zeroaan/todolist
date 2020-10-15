@@ -1,9 +1,14 @@
-import { ADD_LIST, DELETE_LIST, EDIT_LIST } from "../_actions/types";
+import {
+  ADD_LIST,
+  DELETE_LIST,
+  EDIT_LIST,
+  COMPLETE_LIST,
+} from "../_actions/types";
 
 export default (state, action) => {
   if (state === undefined) {
     state = {
-      text: [],
+      list: [],
     };
   }
   let newState;
@@ -11,30 +16,45 @@ export default (state, action) => {
   let i = 0;
   switch (action.type) {
     case ADD_LIST:
-      newText = [action.text, ...state.text];
-      newState = { ...state, text: newText };
+      newText = [{ text: action.text, complete: false }, ...state.list];
+      newState = { ...state, list: newText };
       return newState;
 
     case DELETE_LIST:
-      while (i < state.text.length) {
+      while (i < state.list.length) {
         if (i !== action.id) {
-          newText = [...newText, state.text[i]];
+          newText = [...newText, state.list[i]];
         }
         i = i + 1;
       }
-      newState = { ...state, text: newText };
+      newState = { ...state, list: newText };
       return newState;
 
     case EDIT_LIST:
-      while (i < state.text.length) {
+      while (i < state.list.length) {
         if (i !== action.id) {
-          newText = [...newText, state.text[i]];
+          newText = [...newText, state.list[i]];
         } else {
-          newText = [...newText, action.editText];
+          newText = [...newText, { text: action.editText, complete: false }];
         }
         i = i + 1;
       }
-      newState = { ...state, text: newText };
+      newState = { ...state, list: newText };
+      return newState;
+
+    case COMPLETE_LIST:
+      while (i < state.list.length) {
+        if (i !== action.id) {
+          newText = [...newText, state.list[i]];
+        } else {
+          newText = [
+            ...newText,
+            { text: state.list[i].text, complete: !state.list[i].complete },
+          ];
+        }
+        i = i + 1;
+      }
+      newState = { ...state, list: newText };
       return newState;
 
     default:

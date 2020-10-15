@@ -1,11 +1,18 @@
 import React from "react";
-import DisplayListItem from "../containers/DisplayListItem";
+import { useSelector } from "react-redux";
+import DisplayListItem from "../components/DisplayListItem";
 
-const DisplayList = (props) => {
+const DisplayList = () => {
+  const { list } = useSelector((store) => store.todo);
+
   return (
     <>
-      {props.text.map((item, index) => (
-        <DisplayListItem key={item + index} textItem={item} index={index} />
+      {list.map((item, index) => (
+        <DisplayListItem
+          key={item.text + index}
+          textItem={item.text}
+          index={index}
+        />
       ))}
     </>
   );
