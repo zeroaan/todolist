@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import * as actions from "../_actions/todo_action";
+import * as actions from "../store/actions/todo";
 
 const AddList = (props) => {
   const dispatch = useDispatch();

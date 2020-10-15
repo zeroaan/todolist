@@ -1,7 +1,7 @@
 import PromiseMiddleware from "redux-promise";
 import ReduxThunk from "redux-thunk";
 import { createStore, applyMiddleware } from "redux";
-import Reducer from "../_reducers";
+import Reducer from "./reducers";
 
 const createStoreWithMiddleware = applyMiddleware(
   PromiseMiddleware,

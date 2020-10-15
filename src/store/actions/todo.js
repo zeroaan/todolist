@@ -3,7 +3,7 @@ import {
   DELETE_LIST,
   EDIT_LIST,
   COMPLETE_LIST,
-} from "../_actions/types";
+} from "../actions/types";
 
 export const addList = (text) => {
   return {

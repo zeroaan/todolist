@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as actions from "../_actions/todo_action";
+import * as actions from "../store/actions/todo";
 import "./DisplayListItem.css";
 
 const DisplayListItem = ({ textItem, index }) => {
