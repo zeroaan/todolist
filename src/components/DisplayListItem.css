@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgb(230, 230, 230);
+  border: 1px solid rgb(235, 235, 235);
   background-color: white;
   width: 800px;
   height: 70px;
@@ -22,7 +22,63 @@
   align-items: center;
 }
 
+.todo__edit__text {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(240, 240, 240);
+  width: 500px;
+  height: 35px;
+  padding: 0 15px;
+}
+.todo__edit__ok {
+  font-family: FontAwesome;
+  font-weight: bold;
+  position: absolute;
+  top: 13px;
+  right: 80px;
+  cursor: pointer;
+  margin: 5px;
+  padding: 0px;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  color: rgb(129, 200, 255);
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.todo__edit__ok:hover {
+  color: rgb(47, 165, 255);
+}
+.todo__edit__no {
+  position: absolute;
+  top: 15px;
+  right: 45px;
+  cursor: pointer;
+  margin: 5px;
+  padding: 0px;
+  font-size: 25px;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  color: rgb(255, 175, 175);
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.todo__edit__no:hover {
+  color: rgb(255, 100, 100);
+}
+
 .textItem {
+  position: absolute;
+  left: 128px;
   color: black;
   font-size: 22px;
 }
@@ -79,7 +135,7 @@
   cursor: pointer;
   margin: 5px;
   padding: 0px;
-  font-size: 25px;
+  font-size: 20px;
   width: 30px;
   height: 30px;
   background-color: white;

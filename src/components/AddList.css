@@ -1,0 +1,40 @@
+.todo__add {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(235, 235, 235);
+  background-color: white;
+  width: 800px;
+  height: 70px;
+  margin: auto;
+}
+
+.todo__add__text {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 22px;
+  outline: none;
+  border: none;
+  width: 500px;
+  height: 40px;
+  color: black;
+}
+.todo__add__text:focus {
+  color: rgb(0, 100, 255);
+}
+
+.todo__add__submit {
+  font-family: FontAwesome;
+  cursor: pointer;
+  margin: 5px;
+  padding: 0px;
+  font-size: 25px;
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  color: rgb(47, 165, 255);
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}

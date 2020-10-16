@@ -39,14 +39,22 @@ const DisplayListItem = ({ textItem, index }) => {
           <div className="todo__box">
             <form onSubmit={onSubmit}>
               <input
+                className="todo__edit__text"
                 type="text"
                 value={editText}
                 onChange={onChange}
                 placeholder="내용 입력"
+                autoFocus
               />
               <br />
-              <input type="submit" value="확인" />
-              <button onClick={onClickEdit}>취소</button>
+              <input
+                className="todo__edit__ok"
+                type="submit"
+                value="&#xf044;"
+              />
+              <button className="todo__edit__no" onClick={onClickEdit}>
+                <i className="fas fa-times"></i>
+              </button>
             </form>
           </div>
         </>
@@ -72,7 +80,7 @@ const DisplayListItem = ({ textItem, index }) => {
               </>
             )}
             <button className="todo__delete" onClick={onClickDelete}>
-              <i className="fas fa-times"></i>
+              <i className="fas fa-trash-alt"></i>
             </button>
           </div>
         </>

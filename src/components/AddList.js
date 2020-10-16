@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as actions from "../store/actions/todo";
+import "./AddList.css";
 
-const AddList = (props) => {
+const AddList = () => {
   const dispatch = useDispatch();
   const [list, setList] = useState("");
 
@@ -19,17 +20,19 @@ const AddList = (props) => {
   };
 
   return (
-    <>
+    <div className="todo__add">
       <form onSubmit={onSubmit}>
         <input
+          className="todo__add__text"
           type="text"
           placeholder="할 일 입력"
           value={list}
           onChange={onChange}
+          autoFocus
         />
-        <input type="submit" value="추가" />
+        <input className="todo__add__submit" type="submit" value="&#xf1d8;" />
       </form>
-    </>
+    </div>
   );
 };
 
