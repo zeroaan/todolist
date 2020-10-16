@@ -6,6 +6,7 @@ export default (state, action) => {
       todo: [],
     };
   }
+
   let newState = {};
   let newTodo = [];
   let i = 0;
@@ -46,6 +47,83 @@ export default (state, action) => {
             ...newTodo,
             { text: state.todo[i].text, complete: !state.todo[i].complete },
           ];
+        }
+        i = i + 1;
+      }
+      newState = { ...state, todo: newTodo };
+      return newState;
+
+    case types.VISIBLE_ALL:
+      while (i < state.todo.length) {
+        newTodo = [
+          ...newTodo,
+          {
+            text: state.todo[i].text,
+            complete: state.todo[i].complete,
+            invisible: "",
+          },
+        ];
+        i = i + 1;
+      }
+      newState = { ...state, todo: newTodo };
+      return newState;
+
+    case types.VISIBLE_ACTIVE:
+      while (i < state.todo.length) {
+        if (state.todo[i].complete === false) {
+          newTodo = [
+            ...newTodo,
+            {
+              text: state.todo[i].text,
+              complete: state.todo[i].complete,
+              invisible: "",
+            },
+          ];
+        } else {
+          newTodo = [
+            ...newTodo,
+            {
+              text: state.todo[i].text,
+              complete: state.todo[i].complete,
+              invisible: "invisible",
+            },
+          ];
+        }
+        i = i + 1;
+      }
+      newState = { ...state, todo: newTodo };
+      return newState;
+
+    case types.VISIBLE_COMPLETED:
+      while (i < state.todo.length) {
+        if (state.todo[i].complete === false) {
+          newTodo = [
+            ...newTodo,
+            {
+              text: state.todo[i].text,
+              complete: state.todo[i].complete,
+              invisible: "invisible",
+            },
+          ];
+        } else {
+          newTodo = [
+            ...newTodo,
+            {
+              text: state.todo[i].text,
+              complete: state.todo[i].complete,
+              invisible: "",
+            },
+          ];
+        }
+        i = i + 1;
+      }
+      newState = { ...state, todo: newTodo };
+      return newState;
+
+    case types.CLEAR_COMPLETED:
+      while (i < state.todo.length) {
+        if (state.todo[i].complete === false) {
+          newTodo = [...newTodo, state.todo[i]];
         }
         i = i + 1;
       }

@@ -33,10 +33,10 @@ const DisplayListItem = ({ textItem, index }) => {
   };
 
   return (
-    <>
+    <div id={todo[index].invisible} className="item__box">
       {editing ? (
         <>
-          <div>
+          <div className="todo__box">
             <form onSubmit={onSubmit}>
               <input
                 type="text"
@@ -52,24 +52,32 @@ const DisplayListItem = ({ textItem, index }) => {
         </>
       ) : (
         <>
-          <div>
+          <div className="todo__box">
             {todo[index].complete ? (
               <>
                 <p className="textItem complete">{textItem}</p>
-                <button onClick={onClickComplete}>복구</button>
+                <button className="completeBt cancel" onClick={onClickComplete}>
+                  <i className="fas fa-check"></i>
+                </button>
               </>
             ) : (
               <>
                 <p className="textItem">{textItem}</p>
-                <button onClick={onClickComplete}>완료</button>
-                <button onClick={onClickEdit}>수정</button>
+                <button className="completeBt" onClick={onClickComplete}>
+                  <i className="fas fa-check"></i>
+                </button>
+                <button className="todo__edit" onClick={onClickEdit}>
+                  <i className="fas fa-pen"></i>
+                </button>
               </>
             )}
-            <button onClick={onClickDelete}>삭제</button>
+            <button className="todo__delete" onClick={onClickDelete}>
+              <i className="fas fa-times"></i>
+            </button>
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 

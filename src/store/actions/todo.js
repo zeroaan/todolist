@@ -25,3 +25,24 @@ export const completeList = (id) => {
     id: id,
   };
 };
+
+export const visibleAll = () => {
+  return {
+    type: types.VISIBLE_ALL,
+  };
+};
+export const visibleActive = () => {
+  return {
+    type: types.VISIBLE_ACTIVE,
+  };
+};
+export const visibleCompleted = () => {
+  return {
+    type: types.VISIBLE_COMPLETED,
+  };
+};
+export const clearCompleted = () => {
+  return {
+    type: types.CLEAR_COMPLETED,
+  };
+};

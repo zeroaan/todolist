@@ -1,9 +1,24 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import DisplayListItem from "../components/DisplayListItem";
+import * as actions from "../store/actions/todo";
 
 const DisplayList = () => {
+  const dispatch = useDispatch();
   const { todo } = useSelector((store) => store.todo);
+
+  const onClickAll = () => {
+    dispatch(actions.visibleAll());
+  };
+  const onClickActive = () => {
+    dispatch(actions.visibleActive());
+  };
+  const onClickCompleted = () => {
+    dispatch(actions.visibleCompleted());
+  };
+  const onClickClearCompleted = () => {
+    dispatch(actions.clearCompleted());
+  };
 
   return (
     <>
@@ -14,6 +29,14 @@ const DisplayList = () => {
           index={index}
         />
       ))}
+      {todo.length > 0 ? (
+        <>
+          <button onClick={onClickAll}>All</button>
+          <button onClick={onClickActive}>Active</button>
+          <button onClick={onClickCompleted}>Completed</button>
+          <p onClick={onClickClearCompleted}>Clear completed</p>
+        </>
+      ) : null}
     </>
   );
 };
