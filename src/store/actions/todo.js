@@ -1,32 +1,27 @@
-import {
-  ADD_LIST,
-  DELETE_LIST,
-  EDIT_LIST,
-  COMPLETE_LIST,
-} from "../actions/types";
+import * as types from "../actions/types";
 
 export const addList = (text) => {
   return {
-    type: ADD_LIST,
+    type: types.ADD_LIST,
     text: text,
   };
 };
 export const deleteList = (id) => {
   return {
-    type: DELETE_LIST,
+    type: types.DELETE_LIST,
     id: id,
   };
 };
 export const editList = (editText, id) => {
   return {
-    type: EDIT_LIST,
+    type: types.EDIT_LIST,
     id: id,
     editText: editText,
   };
 };
 export const completeList = (id) => {
   return {
-    type: COMPLETE_LIST,
+    type: types.COMPLETE_LIST,
     id: id,
   };
 };

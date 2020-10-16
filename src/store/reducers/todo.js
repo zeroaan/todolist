@@ -1,60 +1,55 @@
-import {
-  ADD_LIST,
-  DELETE_LIST,
-  EDIT_LIST,
-  COMPLETE_LIST,
-} from "../actions/types";
+import * as types from "../actions/types";
 
 export default (state, action) => {
   if (state === undefined) {
     state = {
-      list: [],
+      todo: [],
     };
   }
-  let newState;
-  let newText = [];
+  let newState = {};
+  let newTodo = [];
   let i = 0;
   switch (action.type) {
-    case ADD_LIST:
-      newText = [{ text: action.text, complete: false }, ...state.list];
-      newState = { ...state, list: newText };
+    case types.ADD_LIST:
+      newTodo = [{ text: action.text, complete: false }, ...state.todo];
+      newState = { ...state, todo: newTodo };
       return newState;
 
-    case DELETE_LIST:
-      while (i < state.list.length) {
+    case types.DELETE_LIST:
+      while (i < state.todo.length) {
         if (i !== action.id) {
-          newText = [...newText, state.list[i]];
+          newTodo = [...newTodo, state.todo[i]];
         }
         i = i + 1;
       }
-      newState = { ...state, list: newText };
+      newState = { ...state, todo: newTodo };
       return newState;
 
-    case EDIT_LIST:
-      while (i < state.list.length) {
+    case types.EDIT_LIST:
+      while (i < state.todo.length) {
         if (i !== action.id) {
-          newText = [...newText, state.list[i]];
+          newTodo = [...newTodo, state.todo[i]];
         } else {
-          newText = [...newText, { text: action.editText, complete: false }];
+          newTodo = [...newTodo, { text: action.editText, complete: false }];
         }
         i = i + 1;
       }
-      newState = { ...state, list: newText };
+      newState = { ...state, todo: newTodo };
       return newState;
 
-    case COMPLETE_LIST:
-      while (i < state.list.length) {
+    case types.COMPLETE_LIST:
+      while (i < state.todo.length) {
         if (i !== action.id) {
-          newText = [...newText, state.list[i]];
+          newTodo = [...newTodo, state.todo[i]];
         } else {
-          newText = [
-            ...newText,
-            { text: state.list[i].text, complete: !state.list[i].complete },
+          newTodo = [
+            ...newTodo,
+            { text: state.todo[i].text, complete: !state.todo[i].complete },
           ];
         }
         i = i + 1;
       }
-      newState = { ...state, list: newText };
+      newState = { ...state, todo: newTodo };
       return newState;
 
     default:

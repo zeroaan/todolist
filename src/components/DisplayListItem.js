@@ -4,11 +4,11 @@ import * as actions from "../store/actions/todo";
 import "./DisplayListItem.css";
 
 const DisplayListItem = ({ textItem, index }) => {
-  const { list } = useSelector((store) => store.todo);
+  const { todo } = useSelector((store) => store.todo);
   const dispatch = useDispatch();
 
   const [editing, setEditing] = useState(false);
-  const [editText, setEditText] = useState(list[index].text);
+  const [editText, setEditText] = useState(todo[index].text);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ const DisplayListItem = ({ textItem, index }) => {
   };
   const onClickEdit = () => {
     setEditing(!editing);
-    setEditText(list[index].text);
+    setEditText(todo[index].text);
   };
   const onClickDelete = () => {
     dispatch(actions.deleteList(index));
@@ -53,7 +53,7 @@ const DisplayListItem = ({ textItem, index }) => {
       ) : (
         <>
           <div>
-            {list[index].complete ? (
+            {todo[index].complete ? (
               <>
                 <p className="textItem complete">{textItem}</p>
                 <button onClick={onClickComplete}>복구</button>

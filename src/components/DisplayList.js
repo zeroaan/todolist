@@ -3,11 +3,11 @@ import { useSelector } from "react-redux";
 import DisplayListItem from "../components/DisplayListItem";
 
 const DisplayList = () => {
-  const { list } = useSelector((store) => store.todo);
+  const { todo } = useSelector((store) => store.todo);
 
   return (
     <>
-      {list.map((item, index) => (
+      {todo.map((item, index) => (
         <DisplayListItem
           key={item.text + index}
           textItem={item.text}
