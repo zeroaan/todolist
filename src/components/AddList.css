@@ -20,7 +20,7 @@
   color: black;
 }
 .todo__add__text:focus {
-  color: rgb(0, 100, 255);
+  color: rgb(0, 175, 175);
 }
 
 .todo__add__submit {
@@ -32,7 +32,7 @@
   width: 35px;
   height: 35px;
   background-color: white;
-  color: rgb(47, 165, 255);
+  color: rgb(0, 175, 175);
   outline: none;
   border: none;
   border-radius: 50%;
