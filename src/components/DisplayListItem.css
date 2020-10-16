@@ -38,7 +38,7 @@
   font-weight: bold;
   position: absolute;
   top: 13px;
-  right: 80px;
+  left: 90px;
   cursor: pointer;
   margin: 5px;
   padding: 0px;
@@ -58,7 +58,7 @@
 .todo__edit__no {
   position: absolute;
   top: 15px;
-  right: 45px;
+  right: 90px;
   cursor: pointer;
   margin: 5px;
   padding: 0px;
@@ -163,12 +163,14 @@
     font-size: 12px;
   }
   .todo__edit__no {
+    right: 45px;
     font-size: 12px;
   }
 
   .textItem {
     left: 55px;
     font-size: 13px;
+    top: 14px;
   }
 
   .completeBt {
@@ -179,8 +181,10 @@
   }
   .todo__edit {
     font-size: 12px;
+    top: 14px;
   }
   .todo__delete {
     font-size: 12px;
+    top: 14px;
   }
 }
