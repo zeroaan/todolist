@@ -2,9 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin-top: 70px;
+  margin-bottom: 50px;
 }
 
 .todo__title {
-  font-size: 70px;
+  font-size: 80px;
 }
