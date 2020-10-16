@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DisplayListItem from "../components/DisplayListItem";
 import * as actions from "../store/actions/todo";
+import "./DisplayList.css";
 
 const DisplayList = () => {
   const dispatch = useDispatch();
@@ -30,12 +31,12 @@ const DisplayList = () => {
         />
       ))}
       {todo.length > 0 ? (
-        <>
+        <div className="todo__visible">
           <button onClick={onClickAll}>All</button>
           <button onClick={onClickActive}>Active</button>
           <button onClick={onClickCompleted}>Completed</button>
           <p onClick={onClickClearCompleted}>Clear completed</p>
-        </>
+        </div>
       ) : null}
     </>
   );
