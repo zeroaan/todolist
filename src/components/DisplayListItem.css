@@ -23,7 +23,7 @@
 }
 
 .todo__edit__text {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 16px;
   outline: none;
   border: none;
@@ -148,4 +148,39 @@
 }
 .todo__delete:hover {
   color: rgb(255, 100, 100);
+}
+
+@media screen and (max-width: 768px) {
+  .item__box {
+    width: 350px;
+  }
+  .todo__edit__text {
+    font-size: 11px;
+    width: 150px;
+  }
+  .todo__edit__ok {
+    left: 45px;
+    font-size: 12px;
+  }
+  .todo__edit__no {
+    font-size: 12px;
+  }
+
+  .textItem {
+    left: 55px;
+    font-size: 13px;
+  }
+
+  .completeBt {
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    font-size: 8px;
+  }
+  .todo__edit {
+    font-size: 12px;
+  }
+  .todo__delete {
+    font-size: 12px;
+  }
 }

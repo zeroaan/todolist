@@ -11,7 +11,7 @@
 }
 
 .todo__add__text {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 22px;
   outline: none;
   border: none;
@@ -37,4 +37,19 @@
   border: none;
   border-radius: 50%;
   transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .todo__add {
+    width: 350px;
+  }
+
+  .todo__add__text {
+    font-size: 13px;
+    width: 200px;
+  }
+
+  .todo__add__submit {
+    font-size: 14px;
+  }
 }

@@ -13,7 +13,7 @@
 }
 .todo__visible button {
   cursor: pointer;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 14px;
   outline: none;
   border: 1px solid white;
@@ -43,4 +43,21 @@
 .todo__visible p:hover {
   text-decoration: underline;
   color: rgb(255, 100, 100);
+}
+
+@media screen and (max-width: 768px) {
+  .todo__visible {
+    width: 350px;
+  }
+  .todo__visible button {
+    position: relative;
+    right: 55px;
+    font-size: 8px;
+    width: 65px;
+    height: 27px;
+  }
+  .todo__visible p {
+    right: 10px;
+    font-size: 8px;
+  }
 }
