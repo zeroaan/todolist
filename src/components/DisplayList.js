@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import DisplayListItem from "../components/DisplayListItem";
+import DisplayListItem from "./DisplayListItem";
 import * as actions from "../store/actions/todo";
 import "./DisplayList.css";
 
