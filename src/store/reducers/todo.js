@@ -1,57 +1,52 @@
-import * as types from "../actions/types";
+import * as types from "../actions/types"
 
-export default (state, action) => {
-  if (state === undefined) {
-    state = {
-      todo: [],
-    };
-  }
+const initialState = {
+  todo: [],
+}
 
-  let newState = {};
-  let newTodo = [];
-  let i = 0;
+const todoReducer = (state = initialState, action) => {
+  let newState = {}
+  let newTodo = []
+  let i = 0
   switch (action.type) {
     case types.ADD_LIST:
-      newTodo = [{ text: action.text, complete: false }, ...state.todo];
-      newState = { ...state, todo: newTodo };
-      return newState;
+      newTodo = [{ text: action.text, complete: false }, ...state.todo]
+      newState = { ...state, todo: newTodo }
+      return newState
 
     case types.DELETE_LIST:
       while (i < state.todo.length) {
         if (i !== action.id) {
-          newTodo = [...newTodo, state.todo[i]];
+          newTodo = [...newTodo, state.todo[i]]
         }
-        i = i + 1;
+        i = i + 1
       }
-      newState = { ...state, todo: newTodo };
-      return newState;
+      newState = { ...state, todo: newTodo }
+      return newState
 
     case types.EDIT_LIST:
       while (i < state.todo.length) {
         if (i !== action.id) {
-          newTodo = [...newTodo, state.todo[i]];
+          newTodo = [...newTodo, state.todo[i]]
         } else {
-          newTodo = [...newTodo, { text: action.editText, complete: false }];
+          newTodo = [...newTodo, { text: action.editText, complete: false }]
         }
-        i = i + 1;
+        i = i + 1
       }
-      newState = { ...state, todo: newTodo };
-      return newState;
+      newState = { ...state, todo: newTodo }
+      return newState
 
     case types.COMPLETE_LIST:
       while (i < state.todo.length) {
         if (i !== action.id) {
-          newTodo = [...newTodo, state.todo[i]];
+          newTodo = [...newTodo, state.todo[i]]
         } else {
-          newTodo = [
-            ...newTodo,
-            { text: state.todo[i].text, complete: !state.todo[i].complete },
-          ];
+          newTodo = [...newTodo, { text: state.todo[i].text, complete: !state.todo[i].complete }]
         }
-        i = i + 1;
+        i = i + 1
       }
-      newState = { ...state, todo: newTodo };
-      return newState;
+      newState = { ...state, todo: newTodo }
+      return newState
 
     case types.VISIBLE_ALL:
       while (i < state.todo.length) {
@@ -62,11 +57,11 @@ export default (state, action) => {
             complete: state.todo[i].complete,
             invisible: "",
           },
-        ];
-        i = i + 1;
+        ]
+        i = i + 1
       }
-      newState = { ...state, todo: newTodo };
-      return newState;
+      newState = { ...state, todo: newTodo }
+      return newState
 
     case types.VISIBLE_ACTIVE:
       while (i < state.todo.length) {
@@ -78,7 +73,7 @@ export default (state, action) => {
               complete: state.todo[i].complete,
               invisible: "",
             },
-          ];
+          ]
         } else {
           newTodo = [
             ...newTodo,
@@ -87,12 +82,12 @@ export default (state, action) => {
               complete: state.todo[i].complete,
               invisible: "invisible",
             },
-          ];
+          ]
         }
-        i = i + 1;
+        i = i + 1
       }
-      newState = { ...state, todo: newTodo };
-      return newState;
+      newState = { ...state, todo: newTodo }
+      return newState
 
     case types.VISIBLE_COMPLETED:
       while (i < state.todo.length) {
@@ -104,7 +99,7 @@ export default (state, action) => {
               complete: state.todo[i].complete,
               invisible: "invisible",
             },
-          ];
+          ]
         } else {
           newTodo = [
             ...newTodo,
@@ -113,24 +108,26 @@ export default (state, action) => {
               complete: state.todo[i].complete,
               invisible: "",
             },
-          ];
+          ]
         }
-        i = i + 1;
+        i = i + 1
       }
-      newState = { ...state, todo: newTodo };
-      return newState;
+      newState = { ...state, todo: newTodo }
+      return newState
 
     case types.CLEAR_COMPLETED:
       while (i < state.todo.length) {
         if (state.todo[i].complete === false) {
-          newTodo = [...newTodo, state.todo[i]];
+          newTodo = [...newTodo, state.todo[i]]
         }
-        i = i + 1;
+        i = i + 1
       }
-      newState = { ...state, todo: newTodo };
-      return newState;
+      newState = { ...state, todo: newTodo }
+      return newState
 
     default:
-      return state;
+      return state
   }
-};
+}
+
+export default todoReducer
