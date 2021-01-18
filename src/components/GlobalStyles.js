@@ -7,6 +7,10 @@ const globalStyles = createGlobalStyle`
   body {
     background-color: rgb(240, 240, 240);
     font-family: "Ubuntu", sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `
 export default globalStyles
