@@ -1,23 +1,25 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import * as actions from "../store/actions/todo";
-import "./AddList.css";
+import React, { useState } from "react"
+import { useDispatch } from "react-redux"
+import { FaRegPaperPlane } from "react-icons/fa"
+
+import * as actions from "../store/actions/todo"
+import "./AddList.css"
 
 const AddList = () => {
-  const dispatch = useDispatch();
-  const [list, setList] = useState("");
+  const dispatch = useDispatch()
+  const [list, setList] = useState("")
 
   const onSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (list !== "") {
-      dispatch(actions.addList(list));
-      setList("");
+      dispatch(actions.addList(list))
+      setList("")
     }
-  };
+  }
   const onChange = (e) => {
-    const { value } = e.target;
-    setList(value);
-  };
+    const { value } = e.target
+    setList(value)
+  }
 
   return (
     <div className="todo__add">
@@ -30,10 +32,10 @@ const AddList = () => {
           onChange={onChange}
           autoFocus
         />
-        <input className="todo__add__submit" type="submit" value="&#xf1d8;" />
+        <FaRegPaperPlane className="todo__add__submit" />
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default AddList;
+export default AddList

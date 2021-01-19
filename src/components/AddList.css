@@ -28,14 +28,10 @@
   cursor: pointer;
   margin: 5px;
   padding: 0px;
-  font-size: 25px;
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
   background-color: white;
   color: rgb(0, 175, 175);
-  outline: none;
-  border: none;
-  border-radius: 50%;
   transition: all 0.3s ease;
 }
 
