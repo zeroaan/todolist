@@ -1,39 +1,54 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import * as actions from "../store/actions/todo";
-import "./DisplayListItem.css";
+import React, { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import styled from "styled-components"
+import { FaEdit, FaTimes, FaCheck, FaPen, FaTrashAlt } from "react-icons/fa"
+
+import * as actions from "../store/actions/todo"
+import "./DisplayListItem.css"
+
+const DivItem = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(235, 235, 235);
+  background-color: white;
+  width: 790px;
+  height: 70px;
+  margin: auto;
+`
 
 const DisplayListItem = ({ textItem, index }) => {
-  const { todo } = useSelector((store) => store.todo);
-  const dispatch = useDispatch();
+  const { todo } = useSelector((store) => store.todo)
+  const dispatch = useDispatch()
 
-  const [editing, setEditing] = useState(false);
-  const [editText, setEditText] = useState(todo[index].text);
+  const [editing, setEditing] = useState(false)
+  const [editText, setEditText] = useState(todo[index].text)
 
   const onSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (editText !== "") {
-      dispatch(actions.editList(editText, index));
-      setEditing(!editing);
+      dispatch(actions.editList(editText, index))
+      setEditing(!editing)
     }
-  };
+  }
   const onChange = (e) => {
-    const { value } = e.target;
-    setEditText(value);
-  };
+    const { value } = e.target
+    setEditText(value)
+  }
   const onClickEdit = () => {
-    setEditing(!editing);
-    setEditText(todo[index].text);
-  };
+    setEditing(!editing)
+    setEditText(todo[index].text)
+  }
   const onClickDelete = () => {
-    dispatch(actions.deleteList(index));
-  };
+    dispatch(actions.deleteList(index))
+  }
   const onClickComplete = () => {
-    dispatch(actions.completeList(index));
-  };
+    dispatch(actions.completeList(index))
+  }
 
   return (
-    <div id={todo[index].invisible} className="item__box">
+    <DivItem id={todo[index].invisible}>
       {editing ? (
         <>
           <div className="todo__box">
@@ -47,14 +62,8 @@ const DisplayListItem = ({ textItem, index }) => {
                 autoFocus
               />
               <br />
-              <input
-                className="todo__edit__ok"
-                type="submit"
-                value="&#xf044;"
-              />
-              <button className="todo__edit__no" onClick={onClickEdit}>
-                <i className="fas fa-times"></i>
-              </button>
+              <FaEdit className="todo__edit__ok" />
+              <FaTimes className="todo__edit__no" onClick={onClickEdit} />
             </form>
           </div>
         </>
@@ -64,29 +73,21 @@ const DisplayListItem = ({ textItem, index }) => {
             {todo[index].complete ? (
               <>
                 <p className="textItem complete">{textItem}</p>
-                <button className="completeBt cancel" onClick={onClickComplete}>
-                  <i className="fas fa-check"></i>
-                </button>
+                <FaCheck className="completeBt cancel" onClick={onClickComplete} />
               </>
             ) : (
               <>
                 <p className="textItem">{textItem}</p>
-                <button className="completeBt" onClick={onClickComplete}>
-                  <i className="fas fa-check"></i>
-                </button>
-                <button className="todo__edit" onClick={onClickEdit}>
-                  <i className="fas fa-pen"></i>
-                </button>
+                <FaCheck className="completeBt" onClick={onClickComplete} />
+                <FaPen className="todo__edit" onClick={onClickEdit} />
               </>
             )}
-            <button className="todo__delete" onClick={onClickDelete}>
-              <i className="fas fa-trash-alt"></i>
-            </button>
+            <FaTrashAlt className="todo__delete" onClick={onClickDelete} />
           </div>
         </>
       )}
-    </div>
-  );
-};
+    </DivItem>
+  )
+}
 
-export default DisplayListItem;
+export default DisplayListItem

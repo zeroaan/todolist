@@ -8,7 +8,7 @@ import VisibleList from "./VisibleList"
 const DivList = styled.div`
   max-width: 800px;
   max-height: 320px;
-  overflow: auto;
+  overflow: scroll;
 
   &::-webkit-scrollbar {
     width: 10px;
