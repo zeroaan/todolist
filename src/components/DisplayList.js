@@ -4,8 +4,6 @@ import { useSelector } from "react-redux"
 import DisplayListItem from "./DisplayListItem"
 import VisibleList from "./VisibleList"
 
-import "./DisplayList.css"
-
 const DisplayList = () => {
   const { todo } = useSelector((store) => store.todo)
 
