@@ -13,7 +13,6 @@ const DivVisible = styled.div`
   background-color: white;
   width: 800px;
   height: 50px;
-  margin: 0 auto 70px;
 
   @media screen and (max-width: 768px) {
     justify-content: flex-start;
