@@ -1,10 +1,21 @@
 import * as types from "../actions/types"
+import produce from "immer"
 
 const initialState = {
   todo: [],
 }
 
 const todoReducer = (state = initialState, action) => {
+  return produce(state, (draft) => {
+    switch (action.type) {
+      case types.ADD_LIST:
+        draft.todo.unshift({ text: action.text, complete: false })
+        break
+      default:
+        break
+    }
+  })
+  /*
   let newState = {}
   let newTodo = []
   let i = 0
@@ -127,7 +138,7 @@ const todoReducer = (state = initialState, action) => {
 
     default:
       return state
-  }
+  }*/
 }
 
 export default todoReducer

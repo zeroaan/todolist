@@ -72,6 +72,7 @@ const VisibleList = () => {
 
   useEffect(() => {
     onClickAll()
+    // eslint-disable-next-line
   }, [])
 
   const onClickAll = () => {
