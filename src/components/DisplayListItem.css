@@ -1,12 +1,13 @@
 #invisible {
   display: none;
 }
-.todo__box {
+
+.todo__form {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
-
 .todo__edit__text {
   font-family: "Ubuntu", sans-serif;
   font-size: 16px;
@@ -19,16 +20,12 @@
   padding: 0 15px;
 }
 .todo__edit__ok {
-  font-family: FontAwesome;
-  font-weight: bold;
-  position: absolute;
-  top: 13px;
-  left: 90px;
   cursor: pointer;
-  margin: 5px;
+  outline: none;
+  border: none;
+  margin: 10px;
   padding: 0px;
-  width: 25px;
-  height: 25px;
+  font-size: 22px;
   background-color: white;
   color: rgb(129, 200, 255);
   transition: all 0.3s ease;
@@ -37,15 +34,10 @@
   color: rgb(47, 165, 255);
 }
 .todo__edit__no {
-  position: absolute;
-  top: 15px;
-  right: 90px;
   cursor: pointer;
-  margin: 5px;
-  padding: 0px;
-  width: 25px;
-  height: 25px;
-  background-color: white;
+  margin: 10px;
+  width: 23px;
+  height: 23px;
   color: rgb(255, 175, 175);
   transition: all 0.3s ease;
 }
@@ -59,11 +51,10 @@
     width: 150px;
   }
   .todo__edit__ok {
-    left: 45px;
-    font-size: 12px;
+    font-size: 16px;
   }
   .todo__edit__no {
-    right: 45px;
-    font-size: 12px;
+    width: 18px;
+    height: 18px;
   }
 }

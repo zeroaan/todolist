@@ -21,6 +21,65 @@ const DivItem = styled.div`
   }
 `
 
+const FormEdit = styled.form`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`
+const ButtonEdit = styled.button`
+  cursor: pointer;
+  outline: none;
+  border: none;
+  margin: 10px;
+  padding: 0px;
+  font-size: 22px;
+  background-color: white;
+  color: rgb(129, 200, 255);
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: rgb(47, 165, 255);
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
+`
+const InputEdit = styled.input`
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(240, 240, 240);
+  width: 500px;
+  height: 35px;
+  padding: 0 15px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 11px;
+    width: 150px;
+  }
+`
+const FaIconTimes = styled(FaTimes)`
+  cursor: pointer;
+  margin: 10px;
+  width: 23px;
+  height: 23px;
+  color: rgb(255, 175, 175);
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: rgb(255, 100, 100);
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
+`
+
 const DivLeft = styled.div`
   width: 13%;
   justify-content: flex-start;
@@ -45,7 +104,6 @@ const PText = styled.p`
     font-size: 13px;
   }
 `
-
 const FaIconCheck = styled(FaCheck)`
   cursor: pointer;
   margin: 0 10px;
@@ -62,7 +120,6 @@ const FaIconCheck = styled(FaCheck)`
     height: 20px;
   }
 `
-
 const FaIconPen = styled(FaPen)`
   cursor: pointer;
   margin: 0 10px;
@@ -82,7 +139,6 @@ const FaIconPen = styled(FaPen)`
     height: 15px;
   }
 `
-
 const FaIconTrash = styled(FaTrashAlt)`
   cursor: pointer;
   margin: 0 10px;
@@ -106,7 +162,7 @@ const DisplayListItem = ({ text, index }) => {
   const { todo } = useSelector((store) => store.todo)
   const dispatch = useDispatch()
 
-  const [editing, setEditing] = useState(false)
+  const [editing, setEditing] = useState(true)
   const [editText, setEditText] = useState(todo[index].text)
 
   const onSubmit = (e) => {
@@ -135,21 +191,13 @@ const DisplayListItem = ({ text, index }) => {
     <DivItem id={todo[index].invisible}>
       {editing ? (
         <>
-          <div className="todo__box">
-            <form onSubmit={onSubmit}>
-              <input
-                className="todo__edit__text"
-                type="text"
-                value={editText}
-                onChange={onChange}
-                placeholder="내용 입력"
-                autoFocus
-              />
-              <br />
-              <FaEdit className="todo__edit__ok" />
-              <FaTimes className="todo__edit__no" onClick={onClickEdit} />
-            </form>
-          </div>
+          <FormEdit onSubmit={onSubmit}>
+            <ButtonEdit>
+              <FaEdit />
+            </ButtonEdit>
+            <InputEdit type="text" value={editText} onChange={onChange} placeholder="내용 입력" autoFocus />
+            <FaIconTimes onClick={onClickEdit} />
+          </FormEdit>
         </>
       ) : (
         <>
