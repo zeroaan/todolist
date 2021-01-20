@@ -21,6 +21,7 @@ const DivVisible = styled.div`
 `
 
 const InputVisible = styled.input`
+  font-family: "Ubuntu", sans-serif;
   cursor: pointer;
   font-size: 14px;
   outline: none;
