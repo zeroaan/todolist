@@ -8,7 +8,7 @@ import * as actions from "store/actions/todo"
 
 const DivItem = styled.div`
   position: relative;
-  display: ${(props) => (props.invisible ? "none" : "flex")};
+  display: ${(props) => (props.$invisible ? "none" : "flex")};
   justify-content: space-between;
   align-items: center;
   border: 1px solid rgb(235, 235, 235);
@@ -93,8 +93,8 @@ const DivRight = styled.div`
 `
 
 const PText = styled.p`
-  text-decoration: ${(props) => (props.complete ? "line-through" : "none")};
-  color: ${(props) => (props.complete ? "rgb(200, 200, 200)" : "black")};
+  text-decoration: ${(props) => (props.$complete ? "line-through" : "none")};
+  color: ${(props) => (props.$complete ? "rgb(200, 200, 200)" : "black")};
   font-size: 22px;
   width: 70%;
   margin: 0 10px;
@@ -110,7 +110,7 @@ const FaIconCheck = styled(FaCheck)`
   padding: 3px;
   width: 25px;
   height: 25px;
-  color: ${(props) => (props.complete ? "rgb(0, 175, 175)" : "transparent")};
+  color: ${(props) => (props.$complete ? "rgb(0, 175, 175)" : "transparent")};
   border: 1px solid rgb(225, 225, 225);
   border-radius: 50%;
   transition: all 0.1s ease;
@@ -128,7 +128,7 @@ const FaIconPen = styled(FaPen)`
   background-color: white;
   color: rgb(129, 200, 255);
   transition: all 0.3s ease;
-  opacity: ${(props) => (props.complete ? "0" : "1")};
+  opacity: ${(props) => (props.$complete ? "0" : "1")};
 
   &:hover {
     color: rgb(47, 165, 255);
@@ -188,7 +188,7 @@ const DisplayListItem = ({ text, index }) => {
   }
 
   return (
-    <DivItem invisible={todo[index].invisible}>
+    <DivItem $invisible={todo[index].invisible}>
       {editing ? (
         <>
           <FormEdit onSubmit={onSubmit}>
@@ -202,11 +202,11 @@ const DisplayListItem = ({ text, index }) => {
       ) : (
         <>
           <DivLeft>
-            <FaIconCheck complete={todo[index].complete} onClick={onClickComplete} />
+            <FaIconCheck $complete={todo[index].complete} onClick={onClickComplete} />
           </DivLeft>
-          <PText complete={todo[index].complete}>{text}</PText>
+          <PText $complete={todo[index].complete}>{text}</PText>
           <DivRight>
-            <FaIconPen complete={todo[index].complete} onClick={onClickEdit} />
+            <FaIconPen $complete={todo[index].complete} onClick={onClickEdit} />
             <FaIconTrash onClick={onClickDelete} />
           </DivRight>
         </>
