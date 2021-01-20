@@ -1,22 +1,17 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import styled from "styled-components"
 
-import DisplayListItem from "./DisplayListItem"
-import VisibleList from "./VisibleList"
-
-const DivList = styled.div``
+import DisplayListItem from "components/DisplayListItem"
+import VisibleList from "components/VisibleList"
 
 const DisplayList = () => {
   const { todo } = useSelector((store) => store.todo)
 
   return (
     <>
-      <DivList>
-        {todo.map((item, index) => (
-          <DisplayListItem key={item.text + index} textItem={item.text} index={index} />
-        ))}
-      </DivList>
+      {todo.map((v, i) => (
+        <DisplayListItem key={v.text + i} textItem={v.text} index={i} />
+      ))}
       {todo.length > 0 && <VisibleList />}
     </>
   )
