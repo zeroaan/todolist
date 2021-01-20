@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import styled from "styled-components"
 
@@ -69,6 +69,10 @@ const VisibleList = () => {
 
   const visibleState = { all: false, active: false, complete: false }
   const [clickState, setClickState] = useState(visibleState)
+
+  useEffect(() => {
+    onClickAll()
+  }, [])
 
   const onClickAll = () => {
     dispatch(actions.visibleAll())
