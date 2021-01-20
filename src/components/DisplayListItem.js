@@ -1,14 +1,14 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import styled from "styled-components"
+
 import { FaEdit, FaTimes, FaCheck, FaPen, FaTrashAlt } from "react-icons/fa"
 
-import * as actions from "../store/actions/todo"
-import "./DisplayListItem.css"
+import * as actions from "store/actions/todo"
 
 const DivItem = styled.div`
   position: relative;
-  display: flex;
+  display: ${(props) => (props.invisible ? "none" : "flex")};
   justify-content: space-between;
   align-items: center;
   border: 1px solid rgb(235, 235, 235);
@@ -162,7 +162,7 @@ const DisplayListItem = ({ text, index }) => {
   const { todo } = useSelector((store) => store.todo)
   const dispatch = useDispatch()
 
-  const [editing, setEditing] = useState(true)
+  const [editing, setEditing] = useState(false)
   const [editText, setEditText] = useState(todo[index].text)
 
   const onSubmit = (e) => {
@@ -188,7 +188,7 @@ const DisplayListItem = ({ text, index }) => {
   }
 
   return (
-    <DivItem id={todo[index].invisible}>
+    <DivItem invisible={todo[index].invisible}>
       {editing ? (
         <>
           <FormEdit onSubmit={onSubmit}>

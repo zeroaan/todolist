@@ -1,7 +1,7 @@
 import * as types from "../actions/types"
 
 const initialState = {
-  todo: [{ text: "test", complete: false }],
+  todo: [],
 }
 
 const todoReducer = (state = initialState, action) => {
@@ -55,7 +55,7 @@ const todoReducer = (state = initialState, action) => {
           {
             text: state.todo[i].text,
             complete: state.todo[i].complete,
-            invisible: "",
+            invisible: false,
           },
         ]
         i = i + 1
@@ -71,7 +71,7 @@ const todoReducer = (state = initialState, action) => {
             {
               text: state.todo[i].text,
               complete: state.todo[i].complete,
-              invisible: "",
+              invisible: false,
             },
           ]
         } else {
@@ -80,7 +80,7 @@ const todoReducer = (state = initialState, action) => {
             {
               text: state.todo[i].text,
               complete: state.todo[i].complete,
-              invisible: "invisible",
+              invisible: true,
             },
           ]
         }
@@ -97,7 +97,7 @@ const todoReducer = (state = initialState, action) => {
             {
               text: state.todo[i].text,
               complete: state.todo[i].complete,
-              invisible: "invisible",
+              invisible: true,
             },
           ]
         } else {
@@ -106,7 +106,7 @@ const todoReducer = (state = initialState, action) => {
             {
               text: state.todo[i].text,
               complete: state.todo[i].complete,
-              invisible: "",
+              invisible: false,
             },
           ]
         }
