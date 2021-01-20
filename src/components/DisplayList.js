@@ -5,24 +5,7 @@ import styled from "styled-components"
 import DisplayListItem from "./DisplayListItem"
 import VisibleList from "./VisibleList"
 
-const DivList = styled.div`
-  max-width: 800px;
-  max-height: 320px;
-  overflow: scroll;
-
-  &::-webkit-scrollbar {
-    width: 10px;
-    height: 0;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 175, 175, 0.5);
-    border-radius: 10px;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: rgb(218, 219, 226);
-    border-radius: 10px;
-  }
-`
+const DivList = styled.div``
 
 const DisplayList = () => {
   const { todo } = useSelector((store) => store.todo)

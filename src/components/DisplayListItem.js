@@ -13,7 +13,7 @@ const DivItem = styled.div`
   align-items: center;
   border: 1px solid rgb(235, 235, 235);
   background-color: white;
-  width: 790px;
+  width: 800px;
   height: 70px;
   margin: auto;
 `
