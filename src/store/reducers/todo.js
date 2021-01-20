@@ -1,7 +1,7 @@
 import * as types from "../actions/types"
 
 const initialState = {
-  todo: [],
+  todo: [{ text: "test", complete: false }],
 }
 
 const todoReducer = (state = initialState, action) => {

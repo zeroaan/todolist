@@ -53,75 +53,7 @@
   color: rgb(255, 100, 100);
 }
 
-.textItem {
-  position: absolute;
-  left: 128px;
-  color: black;
-  font-size: 22px;
-  max-width: 530px;
-  max-height: 30px;
-  overflow: hidden;
-}
-.textItem.complete {
-  color: rgb(200, 200, 200);
-  text-decoration: line-through;
-}
-
-.completeBt {
-  position: absolute;
-  top: 15px;
-  left: 10px;
-  cursor: pointer;
-  margin: 5px;
-  padding: 3px;
-  width: 25px;
-  height: 25px;
-  background-color: white;
-  color: rgb(96, 197, 255, 0);
-  border: 1px solid rgb(225, 225, 225);
-  border-radius: 50%;
-  transition: all 0.1s ease;
-}
-.completeBt.cancel {
-  color: rgb(0, 175, 175);
-}
-
-.todo__edit {
-  position: absolute;
-  right: 45px;
-  cursor: pointer;
-  margin: 5px;
-  padding: 0px;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-  color: rgb(129, 200, 255);
-  transition: all 0.3s ease;
-}
-.todo__edit:hover {
-  color: rgb(47, 165, 255);
-}
-
-.todo__delete {
-  position: absolute;
-  right: 10px;
-  cursor: pointer;
-  margin: 5px;
-  padding: 0px;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-  color: rgb(255, 175, 175);
-  transition: all 0.3s ease;
-}
-.todo__delete:hover {
-  color: rgb(255, 100, 100);
-}
-
 @media screen and (max-width: 768px) {
-  .item__box {
-    width: 350px;
-  }
   .todo__edit__text {
     font-size: 11px;
     width: 150px;
@@ -133,28 +65,5 @@
   .todo__edit__no {
     right: 45px;
     font-size: 12px;
-  }
-
-  .textItem {
-    left: 55px;
-    font-size: 13px;
-    top: 14px;
-    max-width: 210px;
-    max-height: 18px;
-  }
-
-  .completeBt {
-    top: 20px;
-    width: 20px;
-    height: 20px;
-    font-size: 8px;
-  }
-  .todo__edit {
-    font-size: 12px;
-    top: 14px;
-  }
-  .todo__delete {
-    font-size: 12px;
-    top: 14px;
   }
 }

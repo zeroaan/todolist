@@ -10,7 +10,7 @@ const DisplayList = () => {
   return (
     <>
       {todo.map((v, i) => (
-        <DisplayListItem key={v.text + i} textItem={v.text} index={i} />
+        <DisplayListItem key={v.text + i} text={v.text} index={i} />
       ))}
       {todo.length > 0 && <VisibleList />}
     </>

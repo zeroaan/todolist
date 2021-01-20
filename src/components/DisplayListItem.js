@@ -9,16 +9,100 @@ import "./DisplayListItem.css"
 const DivItem = styled.div`
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border: 1px solid rgb(235, 235, 235);
   background-color: white;
   width: 800px;
   height: 70px;
-  margin: auto;
+
+  @media screen and (max-width: 768px) {
+    width: 350px;
+  }
 `
 
-const DisplayListItem = ({ textItem, index }) => {
+const DivLeft = styled.div`
+  width: 13%;
+  justify-content: flex-start;
+  margin: 0 10px;
+`
+const DivRight = styled.div`
+  width: 13%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 10px;
+`
+
+const PText = styled.p`
+  text-decoration: ${(props) => (props.complete ? "line-through" : "none")};
+  color: ${(props) => (props.complete ? "rgb(200, 200, 200)" : "black")};
+  font-size: 22px;
+  width: 70%;
+  margin: 0 10px;
+  overflow: hidden;
+
+  @media screen and (max-width: 768px) {
+    font-size: 13px;
+  }
+`
+
+const FaIconCheck = styled(FaCheck)`
+  cursor: pointer;
+  margin: 0 10px;
+  padding: 3px;
+  width: 25px;
+  height: 25px;
+  color: ${(props) => (props.complete ? "rgb(0, 175, 175)" : "transparent")};
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 50%;
+  transition: all 0.1s ease;
+
+  @media screen and (max-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
+`
+
+const FaIconPen = styled(FaPen)`
+  cursor: pointer;
+  margin: 0 10px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  color: rgb(129, 200, 255);
+  transition: all 0.3s ease;
+  opacity: ${(props) => (props.complete ? "0" : "1")};
+
+  &:hover {
+    color: rgb(47, 165, 255);
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+  }
+`
+
+const FaIconTrash = styled(FaTrashAlt)`
+  cursor: pointer;
+  margin: 0 10px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  color: rgb(255, 175, 175);
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: rgb(255, 100, 100);
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+  }
+`
+
+const DisplayListItem = ({ text, index }) => {
   const { todo } = useSelector((store) => store.todo)
   const dispatch = useDispatch()
 
@@ -69,21 +153,14 @@ const DisplayListItem = ({ textItem, index }) => {
         </>
       ) : (
         <>
-          <div className="todo__box">
-            {todo[index].complete ? (
-              <>
-                <p className="textItem complete">{textItem}</p>
-                <FaCheck className="completeBt cancel" onClick={onClickComplete} />
-              </>
-            ) : (
-              <>
-                <p className="textItem">{textItem}</p>
-                <FaCheck className="completeBt" onClick={onClickComplete} />
-                <FaPen className="todo__edit" onClick={onClickEdit} />
-              </>
-            )}
-            <FaTrashAlt className="todo__delete" onClick={onClickDelete} />
-          </div>
+          <DivLeft>
+            <FaIconCheck complete={todo[index].complete} onClick={onClickComplete} />
+          </DivLeft>
+          <PText complete={todo[index].complete}>{text}</PText>
+          <DivRight>
+            <FaIconPen complete={todo[index].complete} onClick={onClickEdit} />
+            <FaIconTrash onClick={onClickDelete} />
+          </DivRight>
         </>
       )}
     </DivItem>
